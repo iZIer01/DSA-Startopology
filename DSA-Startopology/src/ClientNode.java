@@ -9,6 +9,7 @@
  * @author joaon
  */
 public class ClientNode {
+
     private String cleintID;
     private ServerNode server;
     
@@ -33,4 +34,5 @@ public class ClientNode {
     public String getClientID(){
         return cleintID;
     }
+
 }
