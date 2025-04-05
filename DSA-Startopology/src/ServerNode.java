@@ -10,6 +10,9 @@
  */
 import java.util.HashMap;
 
+/**
+ * Mock implementation of the ServerNode class for testing purposes.
+ */
 public class ServerNode {
     private HashMap<String, ClientNode> clients = new HashMap<>();
 
@@ -23,14 +26,15 @@ public class ServerNode {
         clients.remove(clientID);
     }
 
-    // Take message from one client and send it to another
+    /**
+     * Simulates sending a message from one client to another.
+     * @param senderID The ID of the client sending the message.
+     * @param receiverID The ID of the client receiving the message.
+     * @param message The message content.
+     */
     public void sendMessage(String senderID, String receiverID, String message) {
-        ClientNode receiver = clients.get(receiverID);
-        if (receiver != null) {
-            receiver.receive(senderID, message);
-        } else {
-            System.out.println("Client " + receiverID + " are not found.");
-        }
+        System.out.println("Server received message:");
+        System.out.println("From: " + senderID + " To: " + receiverID + " Message: " + message);
     }
 }
 
