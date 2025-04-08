@@ -33,8 +33,12 @@ public class ServerNode {
      * @param message The message content.
      */
     public void sendMessage(String senderID, String receiverID, String message) {
-        System.out.println("Server received message:");
-        System.out.println("From: " + senderID + " To: " + receiverID + " Message: " + message);
+        ClientNode receiver = clients.get(receiverID);
+        if (receiver != null) {
+            receiver.receive(senderID, message);
+        } else {
+            System.out.println("Error: Receiver with ID " + receiverID + " not found.");
+        }
     }
 }
 
